@@ -1,3 +1,80 @@
 h1 {
     color: #ff0000;
 }
+
+.kasety-search {
+    margin-top: 64px;
+    margin-bottom: 32px !important;
+}
+
+.kaseta-tile {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 15px;
+
+    width: calc(100% - 30px);
+    height: 100px;
+    display: flex;
+    margin: 15px;
+}
+
+.kaseta-img {
+    height: 100%;
+    border-radius: 15px 0 0 15px ;
+}
+
+.kaseta-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 8px;
+    justify-content: space-between;
+}
+
+.kaseta-info__detail {
+    display: flex;
+}
+
+.kaseta-year {
+    margin: 0;
+    margin-right: 8px; 
+}
+
+.kaseta-time {
+    margin: 0;
+    margin-right: 8px; 
+}
+
+.kaseta-availability {
+    margin: 0;
+}
+
+.kaseta-info__bottom,.kaseta-info__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.order_tile {
+    border: 1px solid #000000;
+    border-radius: 15px;
+    display: flex;
+    margin: 15px;
+    flex-direction: column;
+    padding: 15px;
+    background-color: #ffd9d9;
+}
+
+.order__kasety-label {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.order_tile--returned {
+    background-color: #c9ffc9;
+}

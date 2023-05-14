@@ -1,5 +1,33 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    <h1> Czesc </h1>
+    <form class="input-group mb-3 kasety-search" >
+        <input type="text" name='title' class="form-control" placeholder="Wyszukaj kasete" aria-label="Wyszukaj kasete" aria-describedby="button-addon2">
+        <button class="btn btn-primary" type="submit" id="button-addon2">Szukaj</button>
+    </form>
+    <div class="kasety-list">
+        {% for kaseta in kasety %}
+        <div class="kaseta-tile">
+            <img class='kaseta-img' src="{% static 'assets/images/okladka.jpg' %}">
+            <div class="kaseta-info">
+                <div class="kaseta-info__top">
+                    <h3 class="kaseta-title">{{ kaseta.title }}</h3>
+                    <p class="kaseta-availability">DOSTEPNE: {{ kaseta.availability }}</p>
+                </div>
+                <div class="kaseta-info__bottom">
+                    <div class="kaseta-info__detail">
+                        <p class="kaseta-year">{{ kaseta.release_date|date:"Y" }}</p>
+                        <p class="kaseta-time">{{ kaseta.duration }} min</p>
+                    </div>
+                    {% if kaseta.availability > 0 %}
+                        <button onclick="addToCard('{{ kaseta.title }}')" class='btn btn-primary kaseta-btn'>Dodaj</button>
+                    {% else %}
+                        BRAK
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 {% endblock %}

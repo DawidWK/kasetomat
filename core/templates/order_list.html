@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% csrf_token %}
+    {% for object in object_list %}
+    <div class="order_tile {% if object.is_returned %}order_tile--returned{% endif %}">
+        <p> <span class="bold">Imie:</span> {{ object.name }} </p>
+        <p> <span class="bold">Nazwisko:</span> {{ object.email }} </p>
+        <p> <span class="bold">Numer Telefonu:</span> {{ object.phone }} </p>
+        <p class="order__kasety-label"> KASETY: <p>
+            <div class="order__kasety">
+                {% for kaseta in object.kasety.all %}
+                <p> - {{ kaseta.title }} </p>
+                {% endfor %}
+            </div>
+            
+        <p> <span class="bold">Zwrócono:</span> {% if object.is_returned %} Tak {% else %} Nie {% endif %} </p>
+        {% if not object.is_returned %}
+        <button class="btn btn-outline-secondary" onclick="markOrderAsReturned({{ object.id }})"> Oznacz jako zwrócone </button>
+        {% endif %}
+    </div>
+    {% endfor %}
+{% endblock %}

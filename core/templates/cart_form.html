@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <table class="table table-striped cart-table">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="hidden" name="kasety" id="kasety" value="">
+        <button type="submit" class="btn btn-primary"> Wypozycz </button>
+    </form>
+
+<script>
+    fillTable();
+</script>
+{% endblock %}
+
